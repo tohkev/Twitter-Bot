@@ -53,10 +53,10 @@ def run_bot():
             joke = requests.get("https://sv443.net/jokeapi/v2/joke/Miscellaneous,Dark,Pun?blacklistFlags=nsfw,religious,political,racist,sexist&type=single").json()['joke']
             api.update_status('@' + str(mention.user.screen_name) + " " + joke + " ", mention.id)
         elif "#yesorno" in mention.text.lower():
-            answer = random.choice(['Yes', 'No'])
+            answer = ['Yes', 'No']
             print("Found #yesorno!")
             print('Responding back...')
-            api.update_status('@' + str(mention.user.screen_name) + " " + answer, mention.id)
+            api.update_status('@' + str(mention.user.screen_name) + " " + random.choice(answer), mention.id)
 
 while True:
     run_bot()
